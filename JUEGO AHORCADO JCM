@@ -1,0 +1,18 @@
+import random
+
+# palabras secretas
+palabras = ("Almohada", "automovil", "lenguaje", "computadora", "refrigeradora") 
+
+# elegir al azar palabra secreta
+palabras_azar = random.choice(palabras)
+
+# renglones disponibles
+renglones = ("_") * len(palabras)
+# Numero de intentos
+intentos = 7
+
+#Inicio de Juego
+print(palabras_azar)
+print("Juego del ahorcado")
+print("Tendras" ,intentos , "intentos disponibles en la palabra seleccionada")
+

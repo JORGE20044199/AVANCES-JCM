@@ -1,0 +1,33 @@
+import random
+
+# palabras secretas
+palabras = ("Almohada", "automovil", "lenguaje", "computadora", "refrigeradora") 
+
+# elegir al azar palabra secreta
+palabras_azar = random.choice(palabras)
+
+#MOSTRAR palabra con guiones
+palabra_seleccionada = ["_"] * len(palabras_azar)
+# Numero de intentos
+intentos = 7
+
+print("¡Bienvenido al juego del ahorcado!")
+print("Tienes 7 intentos para adivinar la palabra.") 
+
+# Bucle del juego ahorcado
+
+while '_' in palabra_seleccionada and intentos > 0:
+    print(' '.join(palabra_seleccionada))
+    letra = input("Introduce una letra: ")
+
+    if len(letra) != 1:
+        print("Introduce solo una letra.")
+    elif letra in palabras_azar:
+        print("La letra está en la palabra!!.")
+        for i in range(len(palabras_azar)):
+                if palabras_azar[i] == letra:
+                    palabra_seleccionada[i] = letra
+    else:
+        print("la letra no está en la palabra.")
+        intentos -= 1
+        print(f"Te quedan {intentos} intentos.")

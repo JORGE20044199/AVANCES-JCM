@@ -1,5 +1,6 @@
 import random
 
+
 # palabras secretas
 palabras = ("almohada", "automovil", "lenguaje", "computadora", "refrigeradora") 
 
@@ -22,6 +23,8 @@ while '_' in palabra_seleccionada and intentos > 0:
 
     if len(letra) != 1:
         print("Introduce solo una letra.")
+    elif letra in palabra_seleccionada:
+          print("Esa letra ya la ingresaste,!!INSERTA OTRA!!.")
     elif letra in palabras_azar:
         print("La letra está en la palabra!!.")
         for i in range(len(palabras_azar)):
@@ -31,6 +34,7 @@ while '_' in palabra_seleccionada and intentos > 0:
         print("la letra no está en la palabra.")
         intentos -= 1
         print(f"Te quedan {intentos} intentos.")
+     
 
 if '_' not in palabra_seleccionada:
         print(' '.join(palabra_seleccionada))

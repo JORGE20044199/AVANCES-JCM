@@ -1,0 +1,137 @@
+import random
+
+# Dibujo del ahorcado
+ESTADOS = [
+    # Estado 1
+    """
+       +---+
+           |
+           |
+           |
+           |
+           |
+       ========
+    """,
+    """
+       +---+
+       |   |
+           |
+           |
+           |
+           |
+       ========
+    """,
+    # Estado 2
+    """
+       +---+
+       |   |
+       O   |
+           |
+           |
+           |
+       ========
+    """,
+    # Estado 3
+    """
+       +---+
+       |   |
+       O   |
+       |   |
+           |
+           |
+       ========
+    """,
+    # Estado 4
+    """
+       +---+
+       |   |
+       O   |
+      /|   |
+           |
+           |
+       ========
+    """,
+    # Estado 5
+    """
+       +---+
+       |   |
+       O   |
+      /|\  |
+           |
+           |
+       =========
+    """,
+    # Estado 6
+    """
+       +---+
+       |   |
+       O   |
+      /|\  |
+      /    |
+           |
+       =========
+    """,
+    # Estado 7
+    """
+       +---+
+       |   |
+       O   |
+      /|\  |
+      / \  |
+           |
+       =========
+    """,
+]
+
+
+def dibujar_ahorcado(intentos):
+    print(ESTADOS[7 - intentos])
+
+
+def obtener_palabra_azar():
+    palabras = ("almohada", "automovil", "lenguaje", "computadora", "refrigeradora")
+    return random.choice(palabras)
+
+
+def jugar_juego():
+    palabra_seleccionada = ["_"] * len(palabra_azar)
+    intentos = 7
+
+    print("¡Bienvenido al juego del ahorcado!")
+    print("Tienes 7 intentos para adivinar la palabra.")
+
+    while "_" in palabra_seleccionada and intentos > 0:
+        dibujar_ahorcado(intentos)
+        print(' '.join(palabra_seleccionada))
+        letra = input("Introduce una letra: ").lower()
+
+        if len(letra) != 1:
+            print("Introduce solo una letra.")
+        elif letra in palabra_seleccionada:
+            print("Esa letra ya la ingresaste, !!INSERTA OTRA!!.")
+        elif letra in palabra_azar:
+            print("La letra está en la palabra!!.")
+            for i in range(len(palabra_azar)):
+                if palabra_azar[i] == letra:
+                    palabra_seleccionada[i] = letra
+        else:
+            print("la letra no está en la palabra.")
+            intentos -= 1
+            print(f"Te quedan {intentos} intentos.")
+
+    if "_" not in palabra_seleccionada:
+        print(' '.join(palabra_seleccionada))
+        print("¡Felicidades! Has ganado.")
+    else:
+        dibujar_ahorcado(intentos)
+        print(f"Lo siento, has perdido. La palabra era {palabra_azar}.")
+
+
+def main():
+    global palabra_azar
+    palabra_azar = obtener_palabra_azar()
+    jugar_juego()
+
+
+if __name__ == "__main__":
+    main()

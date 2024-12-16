@@ -125,6 +125,9 @@ def jugar_juego():
     else:
         dibujar_ahorcado(intentos)
         print(f"Lo siento, has perdido. La palabra era {palabra_azar}.")
+        jugar_de_nuevo = input("¿Quieres jugar otra vez? (s/n): ")
+    if jugar_de_nuevo.lower() == 's':
+        jugar_juego()
 
 
 def main():

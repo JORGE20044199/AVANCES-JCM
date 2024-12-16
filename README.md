@@ -5,8 +5,8 @@ Jorge Carrillo M.
 Objetivo del Programa 
 
 El objetivo principal del programa es simular el juego clásico del ahorcado en una interfaz de línea de comandos usando lenguaje Python.
-El programa selecciona aleatoriamente una palabra de un conjunto predefinido y el jugador debe adivinarla letra por letra. Si el jugador introduce una
-letra incorrecta, se dibuja una parte del ahorcado. El juego termina cuando el jugador adivina todas las letras de la palabra o cuando se agotan los intentos. 
+El programa selecciona aleatoriamente una palabra de una seccion de palabras y el jugador intentara adivinarla letra por letra. Si el jugador introduce una
+letra incorrecta, se dibuja un estado del ahorcado. El juego termina cuando el jugador adivina todas las letras de la palabra o cuando se agotan los intentos. 
 
 
 Funcionalidades del codigo:

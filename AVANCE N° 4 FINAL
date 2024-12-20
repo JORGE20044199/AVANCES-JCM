@@ -12,20 +12,11 @@ ESTADOS = [
            |
        ========
     """,
+    #Estado 2
     """
        +---+
        |   |
            |
-           |
-           |
-           |
-       ========
-    """,
-    # Estado 2
-    """
-       +---+
-       |   |
-       O   |
            |
            |
            |
@@ -36,7 +27,7 @@ ESTADOS = [
        +---+
        |   |
        O   |
-       |   |
+           |
            |
            |
        ========
@@ -46,7 +37,7 @@ ESTADOS = [
        +---+
        |   |
        O   |
-      /|   |
+       |   |
            |
            |
        ========
@@ -56,12 +47,22 @@ ESTADOS = [
        +---+
        |   |
        O   |
+      /|   |
+           |
+           |
+       ========
+    """,
+    # Estado 6
+    """
+       +---+
+       |   |
+       O   |
       /|\  |
            |
            |
        =========
     """,
-    # Estado 6
+    # Estado 7
     """
        +---+
        |   |
@@ -71,7 +72,7 @@ ESTADOS = [
            |
        =========
     """,
-    # Estado 7
+    # Estado 8
     """
        +---+
        |   |
@@ -94,6 +95,7 @@ def obtener_palabra_azar():
 
 
 def jugar_juego():
+    palabra_azar = obtener_palabra_azar()
     palabra_seleccionada = ["_"] * len(palabra_azar)
     intentos = 7
 
@@ -125,16 +127,10 @@ def jugar_juego():
     else:
         dibujar_ahorcado(intentos)
         print(f"Lo siento, has perdido. La palabra era {palabra_azar}.")
-        jugar_de_nuevo = input("¿Quieres jugar otra vez? (s/n): ")
-    if jugar_de_nuevo.lower() == 's':
+    jugar_de_nuevo = input("¿Quieres jugar otra vez? (s/n): ")
+    if  jugar_de_nuevo.lower() == 's':
         jugar_juego()
 
-
-def main():
-    global palabra_azar
-    palabra_azar = obtener_palabra_azar()
-    jugar_juego()
-
-
+    
 if __name__ == "__main__":
-    main()
+    jugar_juego()
